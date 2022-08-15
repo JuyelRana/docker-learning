@@ -20,6 +20,10 @@ docker run -it [image_name]
 ```sh
 docker images
 ```
+* To no more about an image
+```sh
+docker image inspect [image_name]
+```
 ### 3. List of containers: 
 * List of running containers 
 ```sh 
@@ -51,6 +55,10 @@ docker attach [container_name]
 ```sh
 docker run -p [local_port]:[server_port] -d [container_name]
 ```
+* Detach a container and remove automatically after stop the container
+```sh
+docker run -p [port]:[port] -d --rm [container_name]
+```
 ### 7. Show the all docker logs 
 * Show the previous log of a container
 ```sh
@@ -67,7 +75,7 @@ docker rm [container_name]
 ```
 * Remove multiple by white space and put all container names.
 ```sh
-docker rm [container_name1 container_name2, container_name3]
+docker rm [container_name1 container_name2 container_name3]
 ```
 * Remove all stopped containers
 ```sh
@@ -80,12 +88,31 @@ docker rmi [image_name]
 ```
 * Remove multiple images by white space separator
 ```sh
-docker rmi [image_name1, image_name2, image_name3]
+docker rmi [image_name1 image_name2 image_name3]
 ```
 * Remove all unused images by
 ```sh
 docker image prune
 ```
+### 10. Copy from/to container
+* Copy to a container 
+```sh
+docker cp [file_path] [container_name]:/[destination_path]
+```
+* Copy from a container 
+```sh
+docker cp [container_name]:/[file_path] [destination_path]
+```
+### 11. Naming and Tagging of container and image 
+* Add name to a container 
+```sh
+docker run --name [desired_name] [container_name]
+```
+* Add name and tag to image 
+```
+docker build -t [desired_image_name]:[desired_tag_name] .
+```
+
 
 
 
