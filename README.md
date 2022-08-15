@@ -46,6 +46,19 @@ docker rm [container_name]
 docker rm [container_name1 container_name2, container_name3]
 docker container prune
 ```
+### 9. Remove Images:
+* Remove a single image by 
+```sh
+docker rmi [image_name]
+```
+* Remove multiple images by white space separator
+```sh
+docker rmi [image_name1, image_name2, image_name3]
+```
+* Remove all unused images by
+```sh
+docker image prune
+```
 
 
 
