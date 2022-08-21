@@ -4,10 +4,10 @@ WORKDIR /app
 
 COPY package.json /app/
 
-RUN npm install
+RUN npm install 
 
 COPY . /app/
 
-EXPOSE 3001
+EXPOSE 3000 
 
-CMD [ "node", "app.js"]
+CMD ["node","server.js"]
