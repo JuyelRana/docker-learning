@@ -112,6 +112,19 @@ docker run --name [desired_name] [container_name]
 ```
 docker build -t [desired_image_name]:[desired_tag_name] .
 ```
+* Rename a docker image
+```sh
+docker tag [old_image_name] [new_image_name]
+```
+### 12. Push and pull docker image to docker hub
+* Push a docker image to docker hub
+```sh
+docker push [repo_name]
+```
+* Pull a docker image from docker hub
+```sh
+docker pull [repo_name]
+``` 
 
 
 
