@@ -1,51 +1,8 @@
 version: '3.8'
 services:
-  mongodb:
-    image: 'mongo'
-    volumes:
-      - data:/data/db
-    container_name: mongodb
-    # environment:
-    #   - MONGO_INITDB_ROOT_USERNAME=rana
-    #   - MONGO_INITDB_ROOT_PASSWORD=secret
-    env_file:
-      - ./env/mongo.env
-    ports:
-      - "27017:27017"
-    # networks:
-    #   - goals-net    
-  backend:
-    build: ./backend
-    # build: 
-    #   context: ./backend
-    #   dockerfile: Dockerfile
-    #   args: 
-    #     some-arg: 1
-    ports:
-      - "4001:4001"
-    volumes:
-      - logs:/app/logs
-      - ./backend:/app
-      - /app/node_modules
-    container_name: backend
-    env_file:
-      - ./env/backend.env
-    depends_on:
-      - mongodb
-  
-  frontend:
-    build: ./frontend
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend/src:/app/src
-    container_name: frontend
-    command: 'npm start'
+  npm:
+    build: ./
     stdin_open: true
     tty: true
-    depends_on:
-      - backend
-
-volumes:
-  data: 
-  logs:
+    volumes:
+      - ./:/app
